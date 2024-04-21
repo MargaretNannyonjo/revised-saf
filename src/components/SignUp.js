@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const Authentication = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         navigate("/");
@@ -36,12 +36,12 @@ const Authentication = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" className="login">
-            LOGIN
+            SIGNUP
           </button>
-          {error && <span>Wrong email or password!</span>}
           <p>
-            Don't have an account? <Link to="/signup">SignUp</Link>
+            Already have an account? <Link to="/authentication">Login</Link>
           </p>
+          {error && <span>Wrong email or password!</span>}
         </form>
       </div>
     </>

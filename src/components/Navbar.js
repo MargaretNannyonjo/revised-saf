@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+import Logo from "../images/SQ-logo.png";
 
 const Navbar = () => {
   return (
@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Safari
+            <img src={Logo} alt="logo" className="logo" />
           </a>
           <button
             className="navbar-toggler"
@@ -69,8 +69,8 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="authentication">
-                      Sign In
+                    <Link className="dropdown-item" to="/signup">
+                      Sign Up
                     </Link>
                   </li>
                 </ul>
