@@ -79,7 +79,7 @@ body {
     margin: 10px;
   }
 
-  button {
+  .login button {
     background-color: var(--primary-color);
     color: #000000;
     border: none;
@@ -274,7 +274,8 @@ body {
     margin-left: 1.5rem;
   }
   .footer__nav a {
-    color: #777;
+    font-size: 2rem;
+    color: #014b41;
     text-decoration: none !important;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
@@ -283,4 +284,97 @@ body {
   .footer__nav a:active {
     color: #556ac5;
   }
+}
+
+.blogPage {
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: grid;
+  place-items: center;
+
+  .blogPage-container {
+    width: 80%;
+    height: auto;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  .blogPage-container h1 {
+    text-align: center;
+  }
+
+  .blogPage-container label {
+    font-size: 25px;
+  }
+
+  .blogPage-container .input-group {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .input-group input,
+  .input-group textarea {
+    font-size: 18px;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+  }
+
+  .input-group input {
+    height: 40px;
+  }
+  .input-group textarea {
+    height: 150px;
+  }
+  .input-group button {
+    margin-top: 20px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .input,
+  textarea {
+    margin-top: 5px;
+  }
+}
+
+/* GOOGLE BUTTON */
+.login-with-google-btn {
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 5px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px rgba(0, 0, 0, 0.25);
+  color: #757575;
+  font-size: 225px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", Droid Sans, "Helvetica neue", sans-serif;
+  /* background-image: url(data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iMTgighlaWd0iT); */
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+}
+
+.login-with-google-btn:hover {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-with-google-btn:active {
+  background-color: #eeeeee;
+}
+.login-with-google-btn:focus {
+  outline: none;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 0 0 3px #c8dafc;
+}
+
+.login-with-google-btn:disabled {
+  filter: grayscale(100%);
+  background-color: #ebebeb;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
 }

@@ -1,13 +1,31 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 
-const Authentication = () => {
+const Authentication = ({ setIsAuth }) => {
   let [error, setError] = useState(false);
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        localStorage.setItem("isAuth", true);
+        setIsAuth(true);
+        navigate("/");
+      })
+      .catch((error) => {
+        // Handle authentication errors
+        if (error.code === "auth/popup-closed-by-user") {
+          console.error("Authentication popup was closed by the user.");
+        } else {
+          // Other authentication errors
+          console.error("Error signing in with Google:", error.message);
+        }
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,6 +43,10 @@ const Authentication = () => {
     <>
       <div className="user-auth">
         <form onSubmit={handleLogin}>
+          <p>Sign In with Google to continue</p>
+          <button className="login-with-google-btn" onClick={signInWithGoogle}>
+            Sign in with Google
+          </button>
           <input
             type="email"
             placeholder="Email address"

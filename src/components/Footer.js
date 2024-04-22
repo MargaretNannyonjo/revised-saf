@@ -11,19 +11,29 @@ const Footer = () => {
 
         <ul class="footer__nav">
           <li>
-            <a href="#">About us</a>
+            <a href="#">
+              <i class="fa-brands fa-square-x-twitter"></i>
+            </a>
           </li>
 
           <li>
-            <a href="#">Blog</a>
+            <a href="#">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
           </li>
           <li>
-            <a href="#">Recipes</a>
+            <a href="mailto:questsafari43@gmail.com ">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="#">
+              <i class="fa-brands fa-square-facebook"></i>
+            </a>
           </li>
         </ul>
+
+        <p>Email Address: questsafari43@gmail.com </p>
       </div>
     </>
   );

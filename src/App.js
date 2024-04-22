@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +17,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const currentUser = false;
 
   const requireAuth = ({ Children }) => {
@@ -25,17 +26,20 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Navbar setIsAuth={setIsAuth} isAuth={isAuth} />
 
         <Routes>
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/authentication" element={<Authentication />} />
+          <Route
+            path="/authentication"
+            element={<Authentication setIsAuth={setIsAuth} />}
+          />
           <Route exact path="/" element={<Home />} />
           <Route
             path="/blog"
             element={
               <requireAuth>
-                <Blog />
+                <Blog isAuth={isAuth} />
               </requireAuth>
             }
           />
