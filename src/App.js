@@ -17,7 +17,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+  const [isAuth, setIsAuth] = useState(!!localStorage.getItem("isAuth"));
   const currentUser = false;
 
   const requireAuth = ({ Children }) => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db, auth } from "../firebase";
 
-function BlogList({ isAuth }) {
+function BlogList() {
   const [blogList, setBlogList] = useState([]);
   const blogCollectionRef = collection(db, "Blog-data");
 
@@ -30,7 +30,10 @@ function BlogList({ isAuth }) {
                 </div>
 
                 <div className="deletePost">
-                  {isAuth && post.author.id === auth.currentUser.uid && (
+                  <button onClick={deletePost(post.id)}>
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
+                  {/* {isAuth && post.author.id === auth.currentUser.uid && (
                     <button
                       onClick={() => {
                         deletePost(post.id);
@@ -38,12 +41,12 @@ function BlogList({ isAuth }) {
                     >
                       &#128465;
                     </button>
-                  )}
+                  )} */}
                 </div>
               </div>
 
               <div className="postTextContainer">{post.blogpost}</div>
-              <h3>@{post.author.name}</h3>
+              <h3 className="postName">@{post.author.name}</h3>
             </di>
           );
         })}

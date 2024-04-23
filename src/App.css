@@ -3,6 +3,7 @@
 :root {
   --section-rotate: 9vw;
   --primary-color: #0a7575;
+  --box-shadow: 0 1.2rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 ::-moz-selection {
@@ -288,27 +289,56 @@ body {
 
 .blogPage {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: auto;
   display: grid;
   place-items: center;
 
+  h1 {
+    margin-top: 2rem;
+    font-size: 4rem;
+  }
+
+  .btn {
+    color: white;
+    padding: 10px 16px;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    display: block;
+    background-color: #014b41;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .btn:hover {
+    background-color: #0a7575;
+    transition: all 0.3s ease-in-out;
+  }
+
   .blogPage-container {
-    width: 80%;
+    background-color: #000000;
+    width: 70%;
     height: auto;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
   }
-  .blogPage-container h1 {
-    text-align: center;
-  }
 
+  .blogPage-container form {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+  }
   .blogPage-container label {
     font-size: 25px;
   }
 
   .blogPage-container .input-group {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
   }
@@ -326,13 +356,24 @@ body {
   .input-group textarea {
     height: 150px;
   }
-  .input-group button {
+  form button {
+    padding: 10px 16px;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    display: block;
+    background-color: #87ebdea6;
     margin-top: 20px;
-    height: 40px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+    box-shadow: var(--box-shadow);
+  }
+
+  form button:hover {
+    background-color: #0a7575;
+    transition: all 0.3s ease-in-out;
   }
   .input,
   textarea {
@@ -340,6 +381,40 @@ body {
   }
 }
 
+.post {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  padding: 20px;
+
+  .postHeader {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .deletePost button {
+    border: none;
+    font-size: 1.6rem;
+  }
+
+  .title h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+}
+
+.postTextContainer {
+  font-size: 1.4rem;
+  background-color: #dddbdb;
+  padding: 10px;
+}
+
+.postName {
+  font-size: 1.2rem;
+}
 /* GOOGLE BUTTON */
 .login-with-google-btn {
   cursor: pointer;
