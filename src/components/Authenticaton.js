@@ -43,10 +43,20 @@ const Authentication = ({ setIsAuth }) => {
     <>
       <div className="user-auth">
         <form onSubmit={handleLogin}>
-          <p>Sign In with Google to continue</p>
-          <button className="login-with-google-btn" onClick={signInWithGoogle}>
-            Sign in with Google
-          </button>
+          <p className="paragraph-top">Sign In with Google to continue</p>
+
+          <div className="btn-container">
+            <button
+              className="login-with-google-btn"
+              onClick={signInWithGoogle}
+            >
+              Sign in with Google
+            </button>
+          </div>
+
+          {/* 
+          SIGNIN WITH EMAIL
+          
           <input
             type="email"
             placeholder="Email address"
@@ -60,8 +70,8 @@ const Authentication = ({ setIsAuth }) => {
           <button type="submit" className="login">
             LOGIN
           </button>
-          {error && <span>Wrong email or password!</span>}
-          <p>
+          {error && <span>Wrong email or password!</span>} */}
+          <p className="paragraph-bottom">
             Don't have an account? <Link to="/signup">SignUp</Link>
           </p>
         </form>

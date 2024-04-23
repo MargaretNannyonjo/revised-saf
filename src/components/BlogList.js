@@ -30,18 +30,11 @@ function BlogList() {
                 </div>
 
                 <div className="deletePost">
-                  <button onClick={deletePost(post.id)}>
-                    <i className="fa-solid fa-trash"></i>
-                  </button>
-                  {/* {isAuth && post.author.id === auth.currentUser.uid && (
-                    <button
-                      onClick={() => {
-                        deletePost(post.id);
-                      }}
-                    >
-                      &#128465;
+                  {post.author.id === auth.currentUser.uid && (
+                    <button onClick={() => deletePost(post.id)}>
+                      <i className="fa-solid fa-trash"></i>
                     </button>
-                  )} */}
+                  )}
                 </div>
               </div>
 

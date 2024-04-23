@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
+  --tenne--tawny: #055050ea;
+  --tenne--tawny-dark: rgb(1, 34, 1);
   --section-rotate: 9vw;
   --primary-color: #0a7575;
   --box-shadow: 0 1.2rem 1rem rgba(0, 0, 0, 0.2);
@@ -26,7 +28,7 @@
 }
 
 html {
-  /* font-size: 90.5%; */
+  font-size: 90.5%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -34,7 +36,7 @@ html {
 body {
   box-sizing: border-box;
   line-height: 1.6;
-  font-weight: 300;
+  font-weight: 400;
   font-family: "Lato", sans-serif;
   color: #777;
   padding: 1.2rem;
@@ -58,7 +60,35 @@ body {
   border-radius: 50%;
 }
 
+.nav-item {
+  font-size: 1.4rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logOut-btn {
+  color: white;
+  padding: 10px 16px;
+  letter-spacing: 1px;
+  background-color: #0a7575;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: var(--box-shadow);
+}
+
+.logOut-btn:hover {
+  background-color: #014b41;
+  transition: all 0.3s ease-in-out;
+}
+
 .user-auth {
+  border-radius: 5px;
+  padding: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,35 +96,15 @@ body {
   width: 30%;
   margin: 0 auto;
   top: 20px;
-  background-image: linear-gradient(to right, #7dd56f, #28b487);
-}
+  background-image: linear-gradient(to right, #57acb3, #1c8665);
 
-.user-auth form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  input {
-    width: 200px;
-    height: 30px;
-    margin: 10px;
+  p {
+    font-size: 1.5rem;
+    text-align: center;
   }
-
-  .login button {
-    background-color: var(--primary-color);
-    color: #000000;
-    border: none;
-    padding: 8px 16px;
-    letter-spacing: 1px;
-    border-radius: 8px;
-    cursor: pointer;
-    height: 30px;
-    width: 200px;
-  }
-
-  span {
-    color: red;
-    font-size: 15px;
+  button {
+    margin: block;
+    margin: 0 auto;
   }
 }
 
@@ -256,13 +266,15 @@ body {
     -ms-flex-item-align: center;
     align-self: center;
   }
+
   @media only screen and (max-width: 50em) {
     .footer__logo {
       grid-row: 1;
     }
   }
   .footer__logo img {
-    height: 6rem;
+    width: 100%;
+    height: 10rem;
     cursor: pointer;
   }
   .footer__nav {
@@ -422,22 +434,20 @@ body {
   padding: 5px 16px 12px 42px;
   border: none;
   border-radius: 3px;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
   color: #757575;
-  font-size: 225px;
+  font-size: 20px;
   font-weight: 500;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", Droid Sans, "Helvetica neue", sans-serif;
-  /* background-image: url(data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iMTgighlaWd0iT); */
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
   background-color: white;
   background-repeat: no-repeat;
   background-position: 12px 11px;
 }
-
 .login-with-google-btn:hover {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
 }
-
 .login-with-google-btn:active {
   background-color: #eeeeee;
 }
@@ -446,10 +456,270 @@ body {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
     0 0 0 3px #c8dafc;
 }
-
 .login-with-google-btn:disabled {
   filter: grayscale(100%);
   background-color: #ebebeb;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
   cursor: not-allowed;
+}
+
+/* RECIPE PAGE */
+.btn {
+  font-family: inherit;
+  cursor: pointer;
+  outline: 0;
+  font-size: 1.05rem;
+}
+
+.text {
+  opacity: 0.8;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.quote {
+  font-size: 1.7rem;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.meal-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+
+  text-align: center;
+  height: auto;
+}
+
+.meal-search {
+  margin: 2rem;
+}
+
+.meal-search-box {
+  margin: 1rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.search-control,
+.search-btn {
+  width: 100%;
+}
+
+.search-control {
+  padding: 0 1rem;
+  font-size: 1.4rem;
+  border: 1px solid var(--tenne--tawny);
+  color: var(--tenne--tawny);
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+.search-control::placeholder {
+  color: var(--tenne--tawny);
+}
+
+.search-btn {
+  width: 40px;
+  height: 40px;
+  font-size: 1.4rem;
+  background: var(--tenne--tawny);
+  color: #fff;
+  border: none;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  transition: all 0.4s linear;
+}
+
+.search-btn:hover {
+  background: var(--tenne--tawny-dark);
+}
+
+.meal-result {
+  width: 100%;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 0 auto;
+  grid-gap: 20px;
+  box-sizing: border-box;
+}
+
+#meal {
+  margin: 2rem 0;
+}
+
+.meal-item {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+  margin: 2rem 0;
+}
+
+.meal-img img {
+  width: 100%;
+  display: block;
+}
+
+.meal-name {
+  padding: 1rem 0.5rem;
+}
+
+.meal-name h3 {
+  font-size: 1.4rem;
+}
+
+.recipe-btn {
+  text-decoration: none;
+  color: #fff;
+  background: var(--tenne--tawny);
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+  display: block;
+  width: 170px;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  transition: all 0.4s linear;
+}
+
+.recipe-btn:hover {
+  background: var(--tenne--tawny-dark);
+}
+
+/** meal details **/
+.meal-details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background: var(--tenne--tawny);
+  border-radius: 1rem;
+  width: 50%;
+  height: 90%;
+  overflow-y: scroll;
+  display: none;
+  padding: 2rem 0;
+}
+
+.meal-details::-webkit-scrollbar {
+  width: 10px;
+}
+
+.meal-details::-webkit-scrollbar-thumb {
+  background: #f0f0f0;
+  border-radius: 2rem;
+}
+
+/** Js related **/
+.showRecipe {
+  display: block;
+}
+
+.meal-details-content {
+  margin: 2rem;
+}
+
+.meal-details-content p:not(.recipe-category) {
+  padding: 1rem 0;
+}
+
+.recipe-close-btn {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  font-size: 1.8rem;
+  background: #fff;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.recipe-title {
+  letter-spacing: 1px;
+  padding-bottom: 1rem;
+}
+
+.recipe-category {
+  background: #fff;
+  font-weight: 000;
+  color: var(--tenne--tawny);
+  display: inline-block;
+  padding: 0.2rem 0.2rem;
+  border-radius: 0.3rem;
+}
+
+.recipe-instruct {
+  padding: 1rem 0;
+}
+
+.recipe-meal-img img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.recipe-link {
+  margin: 0.4rem 0;
+}
+
+.recipe-link a {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.4s linear;
+}
+
+.recipe-link a:hover {
+  opacity: 0.7;
+}
+
+.notFound {
+  grid-template-columns: 1fr !important;
+  color: var(--tenne-tawny);
+  font-size: 1.8rem;
+  font-weight: 600;
+  width: 100%;
+}
+
+/** media queries **/
+@media screen and (min-width: 600px) {
+  .meal-search-box {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  #meal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .meal-item {
+    margin: 0;
+  }
+  .meal-details {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 902px) {
+  #meal {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

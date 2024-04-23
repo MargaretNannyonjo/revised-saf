@@ -77,7 +77,7 @@ const Blog = ({ isAuth }) => {
           </div>
         )}
       </div>
-      <BlogList />
+      <BlogList isAuth={isAuth} />
     </>
   );
 };

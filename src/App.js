@@ -9,7 +9,7 @@ import {
 import Home from "./components/Home";
 import Blog from "./components/Blog";
 import Destination from "./components/Destination";
-import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import Recipes from "./components/Recipes";
 import Authentication from "./components/Authenticaton";
 import SignUp from "./components/SignUp";
@@ -43,6 +43,7 @@ function App() {
               </requireAuth>
             }
           />
+
           <Route
             path="/destination"
             element={
@@ -51,16 +52,9 @@ function App() {
               </requireAuth>
             }
           />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Footer />} />
 
-          <Route
-            path="/recipes"
-            element={
-              <requireAuth>
-                <Recipes />
-              </requireAuth>
-            }
-          />
+          <Route path="/recipes" element={<Recipes />} />
         </Routes>
       </Router>
     </div>

@@ -17,7 +17,7 @@ const Navbar = ({ isAuth }) => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             <img src={Logo} alt="logo" className="logo" />
@@ -65,9 +65,11 @@ const Navbar = ({ isAuth }) => {
               </li>
 
               {isAuth ? (
-                <li>
-                  <button onClick={signUserOut}>Log Out</button>
-                </li>
+                <div className="btn-container">
+                  <button onClick={signUserOut} className="logOut-btn">
+                    Log Out
+                  </button>
+                </div>
               ) : (
                 <li className="nav-item dropdown">
                   <Link
