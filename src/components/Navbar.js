@@ -17,7 +17,7 @@ const Navbar = ({ isAuth }) => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             <img src={Logo} alt="logo" className="logo" />

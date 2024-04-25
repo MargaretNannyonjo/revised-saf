@@ -21,6 +21,30 @@ const Home = () => {
         <p>Taste the World, Explore the Flavours of Travel</p>
       </div>
 
+      <div className="content">
+        <h2>Welcome to Food and Travel Adventures!</h2>
+
+        <p>
+          Embark on a culinary journey around the globe and discover the
+          mouthwatering flavors of different cuisines.
+        </p>
+        <p>
+          Explore our collection of delicious recipes inspired by diverse
+          cultures and regions. From Italian pasta dishes to spicy Indian
+          curries, there's something for every plate.
+        </p>
+        <p>
+          Additionally, dive into our travel guides and experience the beauty of
+          breathtaking destinations. Whether you're craving a culinary adventure
+          or seeking wanderlust inspiration, you'll find it here at Safari Quest
+        </p>
+
+        <p className="blog">
+          Don't forget to check out our <a href="/blog">blog</a> page to share
+          your travel and food experiences with others!
+        </p>
+      </div>
+
       <div className="card-container">
         <div class="card">
           <div class="card__header">

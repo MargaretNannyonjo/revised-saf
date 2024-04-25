@@ -36,7 +36,9 @@ const Footer = () => {
             </li>
           </ul>
 
-          <p>Email Address: questsafari43@gmail.com </p>
+          <p className="footer-paragraph">
+            Email Address: questsafari43@gmail.com{" "}
+          </p>
         </div>
       </div>
     </>

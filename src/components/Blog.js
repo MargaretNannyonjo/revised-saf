@@ -48,7 +48,7 @@ const Blog = ({ isAuth }) => {
         </button>
         {addPost && (
           <div className="blogPage-container">
-            <form>
+            <form className="form">
               <div className="input-group">
                 <label>Title</label>
                 <input

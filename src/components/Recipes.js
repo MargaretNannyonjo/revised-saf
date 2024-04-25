@@ -32,7 +32,7 @@ const Recipes = () => {
   };
 
   return (
-    <div className="container">
+    <div className="recipe-container">
       <div className="meal-wrapper">
         <div className="meal-search">
           <h2 className="title">Find Meals For Your Ingredients</h2>
