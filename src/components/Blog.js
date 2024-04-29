@@ -10,7 +10,7 @@ const Blog = ({ isAuth }) => {
   const [blogpost, setBlogpost] = useState("");
 
   const blogCollectionRef = collection(db, "Blog-data");
-  let navigate = useNavigate();
+  const navigate = useNavigate(); // Changed let to const
 
   const createBlog = async () => {
     await addDoc(blogCollectionRef, {
@@ -33,7 +33,7 @@ const Blog = ({ isAuth }) => {
     if (!isAuth) {
       navigate("/authentication");
     }
-  }, []);
+  }, [isAuth, navigate]); // Added navigate as a dependency
 
   const createPost = () => {
     setAddPost(!addPost); // Toggle addPost state

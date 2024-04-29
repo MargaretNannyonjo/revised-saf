@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 
 const Authentication = ({ setIsAuth }) => {
-  let [error, setError] = useState(false);
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const signInWithGoogle = () => {
@@ -30,53 +27,33 @@ const Authentication = ({ setIsAuth }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth)
       .then((userCredential) => {
         const user = userCredential.user;
         navigate("/");
       })
       .catch((error) => {
-        setError(true);
+        console.error("Error signing in:", error.message);
       });
   };
+
   return (
-    <>
-      <div className="user-auth">
-        <form onSubmit={handleLogin}>
-          <p className="paragraph-top">Sign In with Google to continue</p>
+    <div className="user-auth">
+      <form onSubmit={handleLogin}>
+        <p className="paragraph-top">Sign In with Google to continue</p>
 
-          <div className="btn-container">
-            <button
-              className="login-with-google-btn"
-              onClick={signInWithGoogle}
-            >
-              Sign in with Google
-            </button>
-          </div>
-
-          {/* 
-          SIGNIN WITH EMAIL
-          
-          <input
-            type="email"
-            placeholder="Email address"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit" className="login">
-            LOGIN
+        <div className="btn-container">
+          <button className="login-with-google-btn" onClick={signInWithGoogle}>
+            Sign in with Google
           </button>
-          {error && <span>Wrong email or password!</span>} */}
-          <p className="paragraph-bottom">
-            Don't have an account? <Link to="/signup">SignUp</Link>
-          </p>
-        </form>
-      </div>
-    </>
+        </div>
+
+        <p className="paragraph-bottom">
+          Don't have an account? <Link to="/signup">SignUp</Link>
+        </p>
+      </form>
+    </div>
   );
 };
+
 export default Authentication;

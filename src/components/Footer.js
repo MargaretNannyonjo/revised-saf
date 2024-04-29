@@ -14,13 +14,13 @@ const Footer = () => {
         <div className="footerElements">
           <ul className="footer__nav">
             <li>
-              <a href="#">
+              <a href="https://twitter.com/Leaney27">
                 <i className="fa-brands fa-square-x-twitter"></i>
               </a>
             </li>
 
             <li>
-              <a href="#">
+              <a href="https://twitter.com/Leaney27">
                 <i className="fa-brands fa-linkedin"></i>
               </a>
             </li>
@@ -30,7 +30,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://twitter.com/Leaney27">
                 <i className="fa-brands fa-square-facebook"></i>
               </a>
             </li>

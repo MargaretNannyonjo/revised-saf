@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import React from "react";
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 
 const Authentication = ({ setIsAuth }) => {
-  let [error, setError] = useState(false);
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const signInWithGoogle = () => {
@@ -30,14 +27,13 @@ const Authentication = ({ setIsAuth }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        navigate("/");
-      })
-      .catch((error) => {
-        setError(true);
-      });
+    signInWithEmailAndPassword(auth).then((userCredential) => {
+      const user = userCredential.user;
+      navigate("/");
+    });
+    // .catch((error) => {
+    //   setError(true);
+    // });
   };
   return (
     <>
@@ -47,20 +43,6 @@ const Authentication = ({ setIsAuth }) => {
           <button className="login-with-google-btn" onClick={signInWithGoogle}>
             Sign up with Google
           </button>
-          {/* <input
-            type="email"
-            placeholder="Email address"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit" className="login">
-            LOGIN
-          </button>
-          {error && <span>Wrong email or password!</span>} */}
           <p>
             You have an account? <Link to="/authentication">SignUp</Link>
           </p>
