@@ -186,7 +186,7 @@ body {
   display: grid;
   margin-top: 25px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 0.5fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
   grid-gap: 20px;
   box-sizing: border-box;
   justify-content: center;
@@ -808,5 +808,47 @@ body {
 
 /* DESTINATION PAGE */
 .destination-page {
-  margin-top: 10rem;
+  margin-top: 8rem;
+
+  h1 {
+    /* margin-top: 3rem; */
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+.places-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.search-places {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+input {
+  padding: 7px 1.8rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--tenne--tawny);
+  color: var(--tenne--tawny);
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  width: 50%;
+}
+button {
+  padding: 7.5px 8px;
+  font-size: 1.2rem;
+  background: var(--tenne--tawny);
+  color: #fff;
+  border: none;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  transition: all 0.4s linear;
+}
+button:hover {
+  background: var(--tenne--tawny-dark);
 }

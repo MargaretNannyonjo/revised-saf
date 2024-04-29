@@ -1,21 +1,91 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import mapboxgl from "mapbox-gl";
 
 const Destination = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [places, setPlaces] = useState([]);
+  const [map, setMap] = useState(null);
+
+  // Set Mapbox access token
+  mapboxgl.accessToken =
+    "pk.eyJ1Ijoibi1tYWdnaWUiLCJhIjoiY2x2aHV6YjN2MTg0cjJpcGVvZmFjbXBocCJ9.eBPnNnvcBMWVb113kkroXw";
+
+  // Initialize Mapbox map
+  useEffect(() => {
+    const mapInstance = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [0, 0],
+      zoom: 1,
+    });
+    setMap(mapInstance);
+
+    // Clean up function to remove map instance
+    return () => {
+      mapInstance.remove();
+    };
+  }, []);
+
+  // Handle search input change
+  const handleSearchInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Search for places
+  const searchPlaces = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          searchTerm
+        )}.json`,
+        {
+          params: {
+            access_token: mapboxgl.accessToken,
+          },
+        }
+      );
+
+      // Extract coordinates and update map center
+      const [longitude, latitude] = response.data.features[0].center;
+      map.setCenter([longitude, latitude]);
+      map.setZoom(10);
+
+      // Set places data (optional)
+      setPlaces(response.data.features);
+    } catch (error) {
+      console.error("Error searching places:", error);
+    }
+  };
+
   return (
-    <>
-      <div className="destination-page">
-        <iframe
-          className="google-map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255344.48933228067!2d32.30375362499999!3d0.31598380000002063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbdf3744cad83%3A0xf63edbd5c8992c88!2sPIZZA%20BIG%20BEN!5e0!3m2!1sen!2sug!4v1714064308019!5m2!1sen!2sug"
-          width="400"
-          height="450"
-          style={{ border: "0" }}
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+    <div className="destination-page">
+      <h1>Let's Travel</h1>
+
+      <div className="places-search-container">
+        <div className="search-places">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchInputChange}
+            placeholder="Search for places anywhere in the world..."
+          />
+          <button onClick={searchPlaces}>Search</button>
+        </div>
       </div>
-    </>
+
+      <div id="map" style={{ width: "100%", height: "400px" }}></div>
+
+      <div>
+        {places.map((place) => (
+          <div key={place.id}>
+            <h3>{place.place_name}</h3>
+            <span>{place.properties.address}</span>
+            {/* Add other details as needed */}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
