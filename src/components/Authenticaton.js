@@ -29,7 +29,6 @@ const Authentication = ({ setIsAuth }) => {
 
     signInWithEmailAndPassword(auth)
       .then((userCredential) => {
-        const user = userCredential.user;
         navigate("/");
       })
       .catch((error) => {

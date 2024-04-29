@@ -28,12 +28,8 @@ const Authentication = ({ setIsAuth }) => {
     e.preventDefault();
 
     signInWithEmailAndPassword(auth).then((userCredential) => {
-      const user = userCredential.user;
       navigate("/");
     });
-    // .catch((error) => {
-    //   setError(true);
-    // });
   };
   return (
     <>
